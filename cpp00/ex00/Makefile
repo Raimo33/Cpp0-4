@@ -6,7 +6,7 @@
 #    By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/17 20:34:36 by craimond          #+#    #+#              #
-#    Updated: 2024/03/17 21:34:51 by craimond         ###   ########.fr        #
+#    Updated: 2024/03/18 17:51:34 by craimond         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS = $(SRCS:.cpp=.o)
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-RM = rm -f
+RM = rm -rf
 
 RED = \033[0;31m
 GREEN = \033[0;32m
@@ -29,15 +29,16 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 	@$(RM) $(OBJS)
-	@echo "$(GREEN)megaphone is ready$(NC)"
+	@echo "$(GREEN)$(NAME) is ready$(NC)"
 
 %.o: %.cpp
-	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "compiling $<"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(NAME)
-	@echo "$(RED)cleaned $(NAME)$(NC)"
+	@echo "$(RED)cleaning $(NAME)$(NC)"
+	@$(RM) $(OBJS)
+	@$(RM) $(NAME)
 
 re: clean all
 
