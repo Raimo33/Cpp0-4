@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 14:33:29 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/18 18:33:39 by craimond         ###   ########.fr       */
+/*   Updated: 2024/03/19 00:47:34 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,34 @@
 
 //TODO testare con ctrl+d
 
-static void	addContact(PhoneBook& phoneBook);
-static void	searchContact(PhoneBook& phoneBook);
+static void			addContact(PhoneBook& phoneBook);
+static void			searchContact(PhoneBook& phoneBook);
+static std::string	optionsStrInit(const std::string* options);
 
 int	main(void)
 {
 	PhoneBook			phoneBook;
 	std::string			input;
-	const std::string 	options[2] = {"ADD", "SEARCH"};
-	void (*const 		actions[2])(PhoneBook&) = {addContact, searchContact};
+	const std::string 	options[3] = {"ADD", "SEARCH", "EXIT"};
+	void (*const 		actions[3])(PhoneBook&) = {addContact, searchContact, NULL};
 	const uint8_t		inputCount = sizeof(options) / sizeof(options[0]);
 	const std::string	optionsStr = optionsStrInit(options);
 
-	std::cout << "Welcome to the phonebook!" << std::endl;
+	std::cout << BLUE "Welcome to the phonebook!" NC << std::endl;
 	while (1)
 	{		
-		std::cout << "What would you like to do? options: " << choices << std::endl;
-		std::cin >> input;
-		if (input == "EXIT")
-			return (std::cout << "Goodbye!" << std::endl, 0);
+		std::cout << BLUE "What would you like to do? " << optionsStr << ": " NC;
+		std::getline(std::cin, input);
+		if (!std::cin.good())
+			return (std::cout << BLUE "Goodbye!" NC << std::endl, 0);
 		for (uint8_t i = 0; i < inputCount; i++)
 		{
+			if (input == "EXIT")
+				return (std::cout << BLUE "Goodbye!" NC << std::endl, 0);
 			if (input == options[i])
 			{
 				actions[i](phoneBook);
-				break;
+				break ;
 			}
 		}
 	}
@@ -52,20 +55,28 @@ static void	searchContact(PhoneBook& phoneBook)
 
 	for (uint8_t i = 0; i < contactCount; i++)
 		phoneBook.getContact(i).displayInLine();
-	std::cout << "Enter the index of the contact you would like to see: ";
-	std::cin >> input;
+	if (contactCount == 0)
+	{
+		std::cout << ORANGE "No contacts to display" NC << std::endl;
+		return ;
+	}
+	std::cout <<  BLUE "Enter the index of the contact you would like to see: " NC;
+	std::getline(std::cin, input);
+	if (!std::cin.good())
+		return ;
 	try
 	{
 		idx = ft_stoi(input);
 	}
 	catch (std::invalid_argument& e)
 	{
-		std::cout << "Invalid index" << std::endl;
+		std::cout << ORANGE "Invalid index" NC << std::endl;
+		return ;
 	}
 	if (idx < contactCount)
 		phoneBook.getContact(idx).displayOnNewLines();
 	else
-		std::cout << "Invalid index" << std::endl;
+		std::cout << ORANGE "Invalid index" NC << std::endl;
 }
 
 static void	addContact(PhoneBook& phoneBook)
@@ -79,7 +90,9 @@ static void	addContact(PhoneBook& phoneBook)
 	for (uint8_t i = 0; i < promptCount; i++)
 	{
 		std::cout << prompts[i];
-		std::cin >> input;
+		std::getline(std::cin, input);
+		if (!std::cin.good())
+			return ;
 		(newContact.*setters[i])(input);
 	}
 	phoneBook.addContact(newContact);
@@ -87,9 +100,11 @@ static void	addContact(PhoneBook& phoneBook)
 
 std::string	optionsStrInit(const std::string* options)
 {
-	std::string	optionsStr;
-
-	for (uint8_t i = 0; i < sizeof(options) / sizeof(options[0]); i++)
-		optionsStr += options[i] + " ";
+	std::string		optionsStr;
+	const uint8_t	optionsCount = options->length();
+	
+	for (uint8_t i = 0; i < optionsCount - 1; i++)
+		optionsStr += options[i] + '/';
+	optionsStr += options[optionsCount - 1];
 	return optionsStr;
 }

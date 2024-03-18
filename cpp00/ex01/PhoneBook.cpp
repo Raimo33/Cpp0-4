@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:25:31 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/18 17:56:29 by craimond         ###   ########.fr       */
+/*   Updated: 2024/03/18 23:43:28 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,11 @@ void	PhoneBook::addContact(Contact& contact)
 		contact.setIdx(this->contactCount);
 		this->contacts[this->contactCount] = contact;
 		this->contactCount++;
+		if (this->contactCount == MAX_CONTACTS)
+			std::cout << ORANGE "Phonebook is full: new contacts will replace old ones" NC << std::endl;
 	}
 	else
-	{
-		std::cout << "Phonebook is full: replacing the last contact" << std::endl;
 		this->contacts[this->contactCount - 1] = contact;
-	}
 }
 
 Contact	PhoneBook::getContact(const uint8_t idx)

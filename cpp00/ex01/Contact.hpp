@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 21:27:46 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/18 16:47:59 by craimond         ###   ########.fr       */
+/*   Updated: 2024/03/19 00:41:48 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CONTACT_HPP
 
 #include <iostream>
-#include <stdint.h>
 
 class	Contact
 {
