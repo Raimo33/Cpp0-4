@@ -6,7 +6,7 @@
 #    By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/17 20:34:36 by craimond          #+#    #+#              #
-#    Updated: 2024/03/19 10:57:36 by craimond         ###   ########.fr        #
+#    Updated: 2024/03/19 11:00:03 by craimond         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,9 @@ $(NAME): $(OBJS) $(HDRS)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@echo "$(RED)cleaning $(NAME)$(NC)"
 	@$(RM) $(OBJS)
 	@$(RM) $(NAME)
+	@echo "$(RED)cleaned $(NAME)$(NC)"
 
 log: all
 	@echo "running $(NAME)"
