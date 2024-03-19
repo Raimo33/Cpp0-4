@@ -6,13 +6,11 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 14:33:29 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/19 00:47:34 by craimond         ###   ########.fr       */
+/*   Updated: 2024/03/19 09:53:24 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-
-//TODO testare con ctrl+d
 
 static void			addContact(PhoneBook& phoneBook);
 static void			searchContact(PhoneBook& phoneBook);
