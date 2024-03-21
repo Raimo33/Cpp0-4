@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:31:07 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/20 22:43:23 by craimond         ###   ########.fr       */
+/*   Updated: 2024/03/21 12:48:39 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdbool.h>
 # include <stdint.h>
 # include <iostream>
+# include <algorithm>
 # include <map>
 
 # define ORANGE "\033[33m"
@@ -24,6 +25,8 @@
 # define PURPLE "\033[35m"
 # define RED "\033[31m"
 # define NC "\033[0m"
+
+# define N_TESTS 500
 
 class Harl
 {

@@ -6,7 +6,7 @@
 #    By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/17 20:34:36 by craimond          #+#    #+#              #
-#    Updated: 2024/03/20 23:03:31 by craimond         ###   ########.fr        #
+#    Updated: 2024/03/21 12:31:48 by craimond         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OBJS = $(SRCS:.cpp=.o)
 HDRS = Harl.hpp
 
 CC = c++
-CFLAGS = -Wall -Wextra -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 

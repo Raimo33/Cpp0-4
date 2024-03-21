@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 15:50:27 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/20 16:29:57 by craimond         ###   ########.fr       */
+/*   Updated: 2024/03/21 12:55:21 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ void	ft_sed(std::string filename, std::string s1, std::string s2)
 	infile.open(filename.c_str());
 	if (!infile.is_open())
 	{
-		std::cerr << "Error: could not open file" << filename << std::endl;
+		std::cerr << "Error: could not open file '" << filename << "'" << std::endl;
 		return ;
 	}
 	outfile.open(new_filename.c_str());
 	if (!outfile.is_open())
 	{
-		std::cerr << "Error: could not create file" << new_filename << std::endl;
+		std::cerr << "Error: could not create file '" << new_filename << "'" << std::endl;
 		infile.close();
 		return ;
 	}
