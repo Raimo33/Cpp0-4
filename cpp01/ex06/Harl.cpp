@@ -6,11 +6,13 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:31:04 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/20 23:19:45 by craimond         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:03:41 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
+
+static uint8_t	get_level_index(std::string level);
 
 Harl::Harl()
 {
@@ -18,10 +20,6 @@ Harl::Harl()
 	_complaints[1] = &Harl::info;
 	_complaints[2] = &Harl::warning;
 	_complaints[3] = &Harl::error;
-	_levels["DEBUG"] = 0;
-	_levels["INFO"] = 1;
-	_levels["WARNING"] = 2;
-	_levels["ERROR"] = 3;
 	_silenced_levels[0] = false;
 	_silenced_levels[1] = false;
 	_silenced_levels[2] = false;
@@ -32,13 +30,19 @@ Harl::~Harl() {}
 
 void Harl::complain(std::string level)
 {
-	if (_silenced_levels[_levels[level]] == false)
-		(this->*_complaints[_levels[level]])();
+	uint8_t		idx;
+
+	idx = get_level_index(level);
+	if (_silenced_levels[idx] == false)
+		(this->*_complaints[idx])();
 }
 
 void	Harl::silence(std::string level)
 {
-	switch (_levels[level])
+	uint8_t		level_index;
+
+	level_index = get_level_index(level);
+	switch (level_index)
 	{
 		case 3:
 			_silenced_levels[2] = true;
@@ -69,4 +73,20 @@ void	Harl::warning(void)
 void	Harl::error(void)
 {
 	std::cout << RED "ERROR" NC ": This is an error message" << std::endl;
+}
+
+static uint8_t	get_level_index(std::string level)
+{
+	uint8_t				level_index;
+	const std::string	levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	uint8_t				level_count = sizeof(levels) / sizeof(levels[0]);
+
+	level_index = 0;
+	while (level_index < level_count)
+	{
+		if (level == levels[level_index])
+			break;
+		level_index++;
+	}
+	return (level_index);
 }

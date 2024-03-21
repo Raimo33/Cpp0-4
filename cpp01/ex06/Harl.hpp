@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:31:07 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/21 12:48:39 by craimond         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:04:21 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 # include <stdbool.h>
 # include <stdint.h>
 # include <iostream>
-# include <algorithm>
-# include <map>
+# include <algorithm> //usata solo per la funzione rand() nei test del main
 
 # define ORANGE "\033[33m"
 # define CYAN "\033[36m"
@@ -44,7 +43,6 @@ class Harl
 		void							error(void);
 		void (Harl::					*_complaints[4])(void);
 		bool							_silenced_levels[4];
-		std::map<std::string, uint8_t>	_levels;
 };
 
 #endif
