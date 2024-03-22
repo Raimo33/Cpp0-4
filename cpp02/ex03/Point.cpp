@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 11:24:58 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/22 12:24:49 by craimond         ###   ########.fr       */
+/*   Updated: 2024/03/22 17:13:26 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ Point::Point() : _x(0), _y(0) {}
 
 Point::Point(const float x, const float y) : _x(x), _y(y) {}
 
+Point::Point(Fixed const x, Fixed const y) : _x(x), _y(y) {}
+
 Point::Point(const Point &copy) : _x(copy._x), _y(copy._y) {}
 
 Point &Point::operator=(Point &copy)
 {
-	return (copy);
+	return copy;
 }
 
 Point::~Point() {}

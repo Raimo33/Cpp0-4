@@ -6,29 +6,69 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 11:20:43 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/22 12:29:09 by craimond         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:07:34 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include "Point.hpp"
 
-bool	bsp(Point const a, Point const b, Point const c, Point const p)
+static float area (const Point p1, const Point p2, const Point p3);
+
+bool bsp(const Point a, const Point b, const Point c, const Point point)
 {
-	Fixed denom, w1, w2, w3;
+	float d0, d1, d2, d3;
+	bool ret_val = false;
 
-	Fixed byay = b.getY() - a.getY();
-	Fixed bxax = b.getX() - a.getX();
-	Fixed cxax = c.getX() - a.getX();
-	Fixed cyay = c.getY() - a.getY();
-	Fixed pxcx = p.getX() - c.getX();
-	Fixed pycy = p.getY() - c.getY();
-	Fixed bxcx = b.getX() - c.getX();
+	d0 = area(a, b, c);
+	d1 = area(point, a, b);
+	d2 = area(point, b, c);
+	d3 = area(point, a, c);
 
-    denom = (byay * cxax) - (bxax * cyay);
-    w1 = (byay * (pxcx) - (bxcx) * (pycy)) / denom;
-	w2 = (cyay * (pxcx) - cxax * (pycy));
-	w2 = w2 * -1 / denom;
-
-	return (w1 >= 0 && w2 >= 0 && (w1 + w2) <= 1);
+	if ( d1 == 0 || d2 == 0 || d3 == 0)
+		ret_val = false;
+	else if ( d1 + d2 + d3 == d0 )
+		ret_val = true;
+	return (ret_val);
 }
+
+static float area (const Point p1, const Point p2, const Point p3)
+{
+	float	area;
+
+	area =	(
+			( p1.getX().toFloat() * ( p2.getY().toFloat() - p3.getY().toFloat() ) )
+			+ ( p2.getX().toFloat() * ( p3.getY().toFloat() - p1.getY().toFloat() ) )
+			+ ( p3.getX().toFloat() * ( p1.getY().toFloat() - p2.getY().toFloat() ) )
+			)
+			/ 2;
+
+	return (area >= 0 ? area : -area);
+}
+
+// bool	bsp(const Point a, const Point b, const Point c, const Point p)
+// {
+// 	double Ax, Ay, Bx, By, Cx, Cy, Px, Py;
+// 	double s1, s2, s3, s4;
+// 	double w1, w2, w3;
+
+// 	Ax = a.getX().toFloat();
+// 	Ay = a.getY().toFloat();
+// 	Bx = b.getX().toFloat();
+// 	By = b.getY().toFloat();
+// 	Cx = c.getX().toFloat();
+// 	Cy = c.getY().toFloat();
+// 	Px = p.getX().toFloat();
+// 	Py = p.getY().toFloat();
+
+//     s1 = Cy - Ay;
+//     s2 = Cx - Ax;
+//     s3 = By - Ay;
+//     s4 = Py - Ay;
+
+//     w1 = (Ax * s1 + s4 * s2 - Px * s1) / (s3 * s2 - (Bx - Ax) * s1);
+//     w2 = (s4 - w1 * s3) / s1;
+// 	w3 = 1 - w1 - w2;
+
+//     return (w1 > 0 && w2 > 0 && w3 > 0);
+// }
