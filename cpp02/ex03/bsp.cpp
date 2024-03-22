@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 11:20:43 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/22 18:07:34 by craimond         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:26:04 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static float area (const Point p1, const Point p2, const Point p3);
 
 bool bsp(const Point a, const Point b, const Point c, const Point point)
 {
-	float d0, d1, d2, d3;
-	bool ret_val = false;
+	float	d0, d1, d2, d3;
+	bool	ret_val = false;
 
 	d0 = area(a, b, c);
 	d1 = area(point, a, b);
