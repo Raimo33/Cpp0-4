@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 19:01:20 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/21 23:28:51 by craimond         ###   ########.fr       */
+/*   Updated: 2024/03/22 16:45:26 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 Fixed::Fixed() : _value(0)
 {
-	std::cout << GREEN "Default constructor called" NC << std::endl;
+	//std::cout << GREEN "Default constructor called" NC << std::endl;
 }
 
 Fixed::Fixed(const Fixed &copy) : _value(copy._value)
 {
-	std::cout << GREEN "Copy constructor called" NC << std::endl;
+	//std::cout << GREEN "Copy constructor called" NC << std::endl;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << RED "Destructor called" NC << std::endl;
+	//std::cout << RED "Destructor called" NC << std::endl;
 }
 
 Fixed::Fixed(const int value)
 {
-	std::cout << GREEN "Int constructor called" NC << std::endl;
+	//std::cout << GREEN "Int constructor called" NC << std::endl;
 	this->_value = value << this->_fractionalBits;
 }
 
 Fixed::Fixed(const float value)
 {
-	std::cout << GREEN "Float constructor called" NC << std::endl;
+	//std::cout << GREEN "Float constructor called" NC << std::endl;
 	this->_value = roundf(value * (1 << this->_fractionalBits));
 }
 

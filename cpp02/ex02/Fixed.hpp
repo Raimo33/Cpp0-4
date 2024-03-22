@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 19:01:27 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/21 23:20:53 by craimond         ###   ########.fr       */
+/*   Updated: 2024/03/22 16:33:44 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define GREEN "\033[32m"
 # define RED "\033[31m"
+# define ORANGE "\033[33m"
 # define NC "\033[0m"
 
 # include <iostream>
