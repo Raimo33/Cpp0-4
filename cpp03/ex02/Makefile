@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/21 19:18:47 by craimond          #+#    #+#              #
-#    Updated: 2024/03/22 19:22:29 by craimond         ###   ########.fr        #
+#    Created: 2024/03/22 14:09:20 by craimond          #+#    #+#              #
+#    Updated: 2024/04/22 15:26:50 by craimond         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bsp
+NAME = fragtrap
 
-SRCS = main.cpp Fixed.cpp Point.cpp bsp.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
-HDRS = Fixed.hpp Point.hpp
+HDRS = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -36,9 +36,10 @@ $(NAME): $(OBJS) $(HDRS)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@echo "$(RED)cleaning $(NAME)$(NC)"
+	@echo "cleaning $(NAME)"
 	@$(RM) $(OBJS)
 	@$(RM) $(NAME)
+	@echo "$(RED)cleaned $(NAME)$(NC)"
 
 re: clean all
 

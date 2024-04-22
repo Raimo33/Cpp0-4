@@ -6,23 +6,24 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:34:04 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 15:18:35 by craimond         ###   ########.fr       */
+/*   Updated: 2024/04/22 15:27:42 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-	ScavTrap scav("BomboScav");
-	ScavTrap scav_cpy(scav);
-	ScavTrap unnamed_scav;
+	FragTrap fragghio;
+	FragTrap fraggy("Fraggy");
+	FragTrap unlucky_frag("Unlucky");
 
-	scav.guardGate();
-	scav.attack("Majestic Jack");
-	scav.takeDamage(5);
-	scav.beRepaired(1);
-	scav.attack("Majestic Jack");
-
+	fragghio.attack("Unlucky");
+	for (int i = 0; i < 10; i++)
+		unlucky_frag.takeDamage(9);
+	fraggy.beRepaired(35);
+	fraggy.attack("Unlucky");
+	fraggy.HighFiveGuys();
+	fraggy.beRepaired(42);
 	return 0;
 }

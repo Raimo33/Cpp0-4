@@ -6,7 +6,7 @@
 #    By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/21 19:18:47 by craimond          #+#    #+#              #
-#    Updated: 2024/03/21 19:19:10 by craimond         ###   ########.fr        #
+#    Updated: 2024/03/22 19:22:38 by craimond         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(HDRS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
-	@$(RM) $(OBJS)
 	@echo "$(GREEN)$(NAME) is ready$(NC)"
 
 %.o: %.cpp

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 14:34:04 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 15:18:35 by craimond         ###   ########.fr       */
+/*   Created: 2024/03/22 18:31:43 by craimond          #+#    #+#             */
+/*   Updated: 2024/03/22 18:44:16 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-int main()
+# include <iostream>
+# include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
-	ScavTrap scav("BomboScav");
-	ScavTrap scav_cpy(scav);
-	ScavTrap unnamed_scav;
+	public:
+		ScavTrap();
+		ScavTrap(const std::string &name);
+		ScavTrap(const ScavTrap &copy);
+		ScavTrap &operator=(const ScavTrap &copy);
+		~ScavTrap();
 
-	scav.guardGate();
-	scav.attack("Majestic Jack");
-	scav.takeDamage(5);
-	scav.beRepaired(1);
-	scav.attack("Majestic Jack");
+		void	guardGate();
+};
 
-	return 0;
-}
+#endif

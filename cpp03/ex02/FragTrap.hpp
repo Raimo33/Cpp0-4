@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 14:34:04 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 15:18:35 by craimond         ###   ########.fr       */
+/*   Created: 2024/04/22 14:57:20 by craimond          #+#    #+#             */
+/*   Updated: 2024/04/22 15:23:55 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-int main()
+# include <iostream>
+# include "ClapTrap.hpp"
+
+class FragTrap : public ClapTrap
 {
-	ScavTrap scav("BomboScav");
-	ScavTrap scav_cpy(scav);
-	ScavTrap unnamed_scav;
+	public:
+		FragTrap();
+		FragTrap(const std::string &name);
+		~FragTrap();
+		void HighFiveGuys(void);
+};
 
-	scav.guardGate();
-	scav.attack("Majestic Jack");
-	scav.takeDamage(5);
-	scav.beRepaired(1);
-	scav.attack("Majestic Jack");
-
-	return 0;
-}
+#endif
