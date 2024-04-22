@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 16:22:57 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 16:31:25 by craimond         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:49:12 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ class Dog : public Animal
 {
 	public:
 		Dog();
+		Dog(const Dog& other); //copy constructor
+		Dog &operator=(const Dog& other); //copy assignment operator
 		~Dog();
 		void makeSound(void) const;
 };

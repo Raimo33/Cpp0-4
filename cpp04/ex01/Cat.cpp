@@ -1,42 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/22 16:32:36 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 18:14:59 by craimond         ###   ########.fr       */
+/*   Created: 2024/04/22 16:19:56 by craimond          #+#    #+#             */
+/*   Updated: 2024/04/22 18:20:59 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
-Dog::Dog()
+Cat::Cat() : Animal()
 {
-	_type = "dog";
-	std::cout << GREEN "Dog constructor called" NC << std::endl;
+	_type = "cat";
+	_brain = new Brain();
+	std::cout << GREEN "Cat constructor called" NC << std::endl;
 }
 
-Dog &Dog::operator=(const Dog &other)
+Cat &Cat::operator=(const Cat &other)
 {
 	if (this != &other)
-		this->_type = other._type;
+	{
+		_type = other._type;
+		_brain = new Brain();
+	}
 	return *this;
 }
 
-Dog::Dog(const Dog &other)
+Cat::Cat(const Cat &other)
 {
 	*this = other;
 	std::cout << "Animal constructor called" << std::endl;
 }
 
-Dog::~Dog()
+Cat::~Cat()
 {
-	std::cout << RED "Dog destructor called" NC << std::endl;
+	delete _brain;
+	std::cout << RED "Cat destructor called" NC << std::endl;
 }
 
-void Dog::makeSound(void) const
+void Cat::makeSound(void) const
 {
-	std::cout << "bau" << std::endl;
+	std::cout << "miao" << std::endl;
 }

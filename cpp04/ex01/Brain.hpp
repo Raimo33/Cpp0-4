@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 14:34:04 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 18:12:38 by craimond         ###   ########.fr       */
+/*   Created: 2024/04/22 17:35:49 by craimond          #+#    #+#             */
+/*   Updated: 2024/04/22 18:11:37 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-int main()
+# include <iostream>
+
+# define GREEN "\033[32m"
+# define RED "\033[31m"
+# define BLUE "\033[34m"
+# define NC "\033[0m"
+
+# define BRAIN_SIZE 100
+
+class Brain
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	delete meta;
-	delete j;
-	delete i;
-	return 0;
-}
+	public:
+		Brain();
+		Brain(const Brain& other); //copy constructor
+		Brain &operator=(const Brain& other); //copy assignment operator
+		~Brain();
+	protected:
+		std::string *_ideas;
+};
+
+#endif

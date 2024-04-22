@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 16:13:27 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 18:18:46 by craimond         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:15:29 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ Animal::Animal() : _type("Essere Vivente")
 	std::cout << GREEN "Animal constructor called" NC << std::endl;
 }
 
-Animal &Animal::operator=(const Animal &other)
+Animal& Animal::operator=(const Animal& other)
 {
 	if (this != &other)
-		this->_type = other._type;
-	return *this;
+        this->_type = other._type;
+    return *this;
 }
 
-Animal::Animal(const Animal &other)
+Animal::Animal(const Animal& other)
 {
 	*this = other;
-	std::cout << "Animal constructor called" << std::endl;
+    std::cout << "Animal constructor called" << std::endl;
 }
 
 Animal::~Animal()

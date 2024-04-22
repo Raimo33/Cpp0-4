@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 16:19:56 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 16:35:11 by craimond         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:14:42 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,21 @@
 
 Cat::Cat() : Animal()
 {
-	type = "cat";
+	_type = "cat";
 	std::cout << GREEN "Cat constructor called" NC << std::endl;
+}
+
+Cat &Cat::operator=(const Cat &other)
+{
+	if (this != &other)
+		this->_type = other._type;
+	return *this;
+}
+
+Cat::Cat(const Cat &other)
+{
+	*this = other;
+	std::cout << "Animal constructor called" << std::endl;
 }
 
 Cat::~Cat()

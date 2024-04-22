@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 14:34:04 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 18:12:38 by craimond         ###   ########.fr       */
+/*   Created: 2024/04/22 16:19:58 by craimond          #+#    #+#             */
+/*   Updated: 2024/04/22 18:17:10 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
-int main()
+# include "Animal.hpp"
+# include "Brain.hpp"
+
+class Cat : public Animal
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	delete meta;
-	delete j;
-	delete i;
-	return 0;
-}
+	public:
+		Cat();
+		Cat(const Cat& other); //copy constructor
+		Cat &operator=(const Cat& other); //copy assignment operator
+		~Cat();
+		void makeSound(void) const;
+	private:
+		Brain *_brain;
+};
+
+#endif
