@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:30:11 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 15:56:51 by craimond         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:19:48 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ class DiamondTrap : public FragTrap, public ScavTrap
 	public:
 		DiamondTrap(const std::string &name);
 		~DiamondTrap();
+		DiamondTrap(const DiamondTrap &copy); //copy constructor
+		DiamondTrap &operator=(const DiamondTrap &copy); //copy assignment
 		void attack(const std::string &target);
 		void whoAmI();
 	

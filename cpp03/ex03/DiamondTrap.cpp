@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 15:30:04 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 16:05:28 by craimond         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:20:33 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,21 @@ DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + "_clap_name"
 DiamondTrap::~DiamondTrap()
 {
 	std::cout << RED "DiamondTrap destructor called" NC << std::endl;
+}
+
+DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &copy)
+{
+	_name = copy._name;
+	_hit_points = copy._hit_points;
+	_energy_points = copy._energy_points;
+	_attack_damage = copy._attack_damage;
+	return *this;
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap &copy)
+{
+	*this = copy;
+	std::cout << GREEN "DiamondTrap constructor called" NC << std::endl;
 }
 
 void DiamondTrap::attack(const std::string &target)

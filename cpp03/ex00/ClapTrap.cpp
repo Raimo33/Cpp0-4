@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:15:00 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/22 14:37:38 by craimond         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:17:57 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,6 @@ ClapTrap::ClapTrap(const std::string &name) : _name(name), _hit_points(10), _ene
 	std::cout << GREEN << _name << " has spawned" NC << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &copy)
-{
-	*this = copy;
-	std::cout << GREEN << _name << " has spawned" NC << std::endl;
-}
-
 ClapTrap	&ClapTrap::operator=(const ClapTrap &copy)
 {
 	_name = copy._name;
@@ -35,6 +29,12 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &copy)
 	_energy_points = copy._energy_points;
 	_attack_damage = copy._attack_damage;
 	return *this;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &copy)
+{
+	*this = copy;
+	std::cout << GREEN << _name << " has spawned" NC << std::endl;
 }
 
 ClapTrap::~ClapTrap()

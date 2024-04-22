@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 16:13:29 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 16:43:43 by craimond         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:32:10 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Animal
 	public:
 		Animal();
 		~Animal();
-		void makeSound(void) const; //const: non modifica le member variables della classe su cui 'e chiamata
+		virtual void makeSound(void) const; //const: non modifica le member variables della classe su cui 'e chiamata
 		std::string getType(void) const;
 	protected:
 		std::string type;

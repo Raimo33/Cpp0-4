@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:10:35 by craimond          #+#    #+#             */
-/*   Updated: 2024/03/22 18:41:44 by craimond         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:13:41 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class ClapTrap
 		ClapTrap(const std::string &name); //custom constructor 
 		ClapTrap(const ClapTrap &copy); //copy constructor
 		ClapTrap &operator=(const ClapTrap &copy); //copy assignment
-		~ClapTrap(); //destructor
-		void attack(const std::string &target);
+		virtual ~ClapTrap(); //destructor
+		virtual void attack(const std::string &target);
 		void takeDamage(uint16_t amount);
 		void beRepaired(uint16_t amount);
 	protected:

@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:34:04 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 16:45:46 by craimond         ###   ########.fr       */
+/*   Updated: 2024/04/22 17:32:53 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
 	const Animal* i = new Cat();
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound! //TODO doesn't work
+	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
 	return 0;
