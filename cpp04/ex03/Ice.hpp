@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 19:09:35 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 19:10:48 by craimond         ###   ########.fr       */
+/*   Updated: 2024/04/26 13:47:00 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 # define ICE_HPP
 
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
-class Ice : public AMateria
+class Ice : virtual public AMateria
 {
 	public:
 		Ice();
-		Ice(const Ice& other);
-		Ice& operator=(const Ice& other);
+		Ice(const Ice &other);
+		Ice &operator=(const Ice &other);
 		~Ice();
-
-		AMateria* clone() const;
-		void use(ICharacter& target);
+		AMateria *clone() const;
+		void use(ICharacter &target);
 };
 
 #endif
