@@ -1,5 +1,2 @@
-*.vscode/*
-*/*.vscode/*
-*/*/*.vscode/*
-/*.o
-/*/*.o
+.vscode/
+*.o
