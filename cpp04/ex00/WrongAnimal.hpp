@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/22 16:22:57 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/26 14:49:23 by craimond         ###   ########.fr       */
+/*   Created: 2024/04/28 15:14:47 by craimond          #+#    #+#             */
+/*   Updated: 2024/04/28 15:19:19 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-# include "Animal.hpp"
-# include "Brain.hpp"
+#include <iostream>
 
-class Dog : public Animal
+#define GREEN "\033[32m"
+#define RED "\033[31m"
+#define BLUE "\033[34m"
+#define NC "\033[0m"
+
+class WrongAnimal
 {
 	public:
-		Dog();
-		Dog(const Dog &other); //copy constructor
-		Dog &operator=(const Dog &other); //copy assignment operator
-		~Dog();
-		void makeSound(void) const;
-	private:
-		Brain *_brain;
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal &copy);
+		virtual ~WrongAnimal();
+		WrongAnimal &operator=(const WrongAnimal &copy);
+		std::string getType() const;
+		void makeSound() const;
+	protected:
+		std::string _type;
 };
 
 #endif

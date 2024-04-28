@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 16:19:56 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 18:14:42 by craimond         ###   ########.fr       */
+/*   Updated: 2024/04/28 15:21:20 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Cat &Cat::operator=(const Cat &other)
 Cat::Cat(const Cat &other)
 {
 	*this = other;
-	std::cout << "Animal constructor called" << std::endl;
+	std::cout << GREEN "Cat constructor called" NC << std::endl;
 }
 
 Cat::~Cat()

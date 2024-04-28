@@ -6,16 +6,15 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 16:19:56 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 18:20:59 by craimond         ###   ########.fr       */
+/*   Updated: 2024/04/28 15:23:19 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : Animal()
+Cat::Cat() : Animal(), _brain(new Brain())
 {
-	_type = "cat";
-	_brain = new Brain();
+	Animal::_type = "cat";
 	std::cout << GREEN "Cat constructor called" NC << std::endl;
 }
 
@@ -23,8 +22,9 @@ Cat &Cat::operator=(const Cat &other)
 {
 	if (this != &other)
 	{
-		_type = other._type;
-		_brain = new Brain();
+		this->_type = other._type;
+		delete this->_brain;
+		this->_brain = new Brain(*other._brain);
 	}
 	return *this;
 }
@@ -32,7 +32,7 @@ Cat &Cat::operator=(const Cat &other)
 Cat::Cat(const Cat &other)
 {
 	*this = other;
-	std::cout << "Animal constructor called" << std::endl;
+	std::cout << GREEN "Cat constructor called" NC << std::endl;
 }
 
 Cat::~Cat()

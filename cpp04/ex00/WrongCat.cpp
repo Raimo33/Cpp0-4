@@ -1,47 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/22 16:32:36 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/28 15:22:50 by craimond         ###   ########.fr       */
+/*   Created: 2024/04/28 15:17:29 by craimond          #+#    #+#             */
+/*   Updated: 2024/04/28 15:21:52 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog() : _brain(new Brain())
+WrongCat::WrongCat() : WrongAnimal()
 {
-	Animal::_type = "dog";
-	std::cout << GREEN "Dog constructor called" NC << std::endl;
+	_type = "WrongCat";
+	std::cout << GREEN "WrongCat constructor called" NC << std::endl;
 }
 
-Dog &Dog::operator=(const Dog &other)
+WrongCat &WrongCat::operator=(const WrongCat &other)
 {
 	if (this != &other)
-	{
 		this->_type = other._type;
-		delete _brain;
-		this->_brain = new Brain(*other._brain);
-	}
 	return *this;
 }
 
-Dog::Dog(const Dog &other)
+WrongCat::WrongCat(const WrongCat &other)
 {
 	*this = other;
-	std::cout << GREEN "Dog constructor called" NC << std::endl;
+	std::cout << GREEN "WrongCat constructor called" NC << std::endl;
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-	delete _brain;
-	std::cout << RED "Dog destructor called" NC << std::endl;
+	std::cout << RED "WrongCat destructor called" NC << std::endl;
 }
 
-void Dog::makeSound(void) const
+void WrongCat::makeSound(void) const
 {
-	std::cout << "bau" << std::endl;
+	std::cout << "MUUUUUU SONO UNA MUCCA CAZZO" << std::endl;
 }

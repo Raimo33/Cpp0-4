@@ -6,15 +6,15 @@
 #    By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/22 14:09:20 by craimond          #+#    #+#              #
-#    Updated: 2024/04/22 16:34:45 by craimond         ###   ########.fr        #
+#    Updated: 2024/04/28 15:24:01 by craimond         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = polymorphism
 
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 OBJS = $(SRCS:.cpp=.o)
-HDRS = Animal.hpp Cat.hpp Dog.hpp
+HDRS = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98

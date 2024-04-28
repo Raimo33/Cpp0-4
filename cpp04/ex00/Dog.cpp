@@ -6,7 +6,7 @@
 /*   By: craimond <bomboclat@bidol.juis>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 16:32:36 by craimond          #+#    #+#             */
-/*   Updated: 2024/04/22 18:14:59 by craimond         ###   ########.fr       */
+/*   Updated: 2024/04/28 15:20:59 by craimond         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Dog &Dog::operator=(const Dog &other)
 Dog::Dog(const Dog &other)
 {
 	*this = other;
-	std::cout << "Animal constructor called" << std::endl;
+	std::cout << GREEN "Dog constructor called" NC << std::endl;
 }
 
 Dog::~Dog()
